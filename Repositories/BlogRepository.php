@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Repositories;
+
+use User;
+use App\Models\Blog;
+use App\Repositories\Interfaces\BlogRepositoryInterface;
+
+class BlogRepository implements BlogRepositoryInterface{
+
+    public function all(){
+        return Blog::get();
+    }
+
+    public function getByUser(User $user){
+        return Blog::where('user_id', $user->id)->get();
+    }
+}
