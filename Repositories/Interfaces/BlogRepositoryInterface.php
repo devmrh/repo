@@ -6,7 +6,7 @@ use App\User;
 
 interface BlogRepositoryInterface{
 
-        public function get();
+        public function all();
 
         public function getByUser(User $user);
     }

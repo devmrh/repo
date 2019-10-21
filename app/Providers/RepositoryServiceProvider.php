@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Repositories\BlogRepository;
+use App\Repositories\Interfaces\BlogRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
-class BackendServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -14,8 +16,8 @@ class BackendServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'App\Repositories\Interfaces\BlogRepositoryInterface',
-            'App\Repositories\BlogRepository'
+            BlogRepositoryInterface::class,
+            BlogRepository::class
         );
     }
 
